@@ -1,0 +1,14 @@
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        
+        num_freq = {}
+
+        for i in range(len(nums)):
+            if nums[i] in num_freq:
+                num_freq[nums[i]].append(i)
+            else:
+                num_freq[nums[i]] = [i]
+        
+        for i in range(len(nums)):
+            if target-nums[i] in num_freq:
+                return [i, num_freq[target-nums[i]][0]]
